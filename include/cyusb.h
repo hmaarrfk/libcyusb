@@ -5,7 +5,7 @@
  * This is the main header file for the cyusb suite for Linux/Mac, called cyusb.h *
  *                                                                                *
  * Author              :        V. Radhakrishnan ( rk@atr-labs.com )              *
- * License             :        GPL Ver 2.0                                       *
+ * License             :        LGPL Ver 2.1                                      *
  * Copyright           :        Cypress Semiconductors Inc. / ATR-LABS            *
  * Date written        :        March 12, 2012                                    *
  * Modification Notes  :                                                          *
@@ -16,7 +16,6 @@
  \********************************************************************************/
 
 #include <libusb-1.0/libusb.h>
-#include <linux/types.h>
 
 typedef struct libusb_device               cyusb_device;
 typedef struct libusb_device_handle        cyusb_handle;
@@ -453,4 +452,4 @@ extern int cyusb_download_fx2(cyusb_handle *h, char *filename, unsigned char ven
  ***************************************************************************************/
 extern int cyusb_download_fx3(cyusb_handle *h, char *filename);
 
-#endif
+#endif /* __CYUSB_H */
