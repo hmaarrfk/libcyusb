@@ -2,9 +2,17 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project("cyusb")
 include(GNUInstallDirs)
 
+set(LIBCYUSB_VERSION_MAJOR 1)
+set(LIBCYUSB_VERSION_MINOR 0)
+set(LIBCYUSB_VERSION_PATCH 5)
+set(LIBCYUSB_VERSION ${LIBCYUSB_VERSION_MAJOR}.${LIBCYUSB_VERSION_MINOR}.${LIBCYUSB_VERSION_PATCH} )
+
 add_library(cyusb SHARED "lib/libcyusb.cpp")
 set_target_properties(cyusb PROPERTIES PUBLIC_HEADER "include/cyusb.h")
 target_link_libraries(cyusb usb-1.0)
+
+set_target_properties(cyusb PROPERTIES VERSION ${LIBCYUSB_VERSION}
+                                       SOVERSION ${LIBCYUSB_VERSION_MAJOR}.${LIBCYUSB_VERSION_PATCH})
 
 install(TARGETS cyusb
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
