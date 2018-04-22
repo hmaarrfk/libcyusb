@@ -6,11 +6,12 @@ Summary:    CyUSB library for linux
 Group:      Development/Libraries
 License:    LGPL 2.1
 URL:        http://www.cypress.com/
-%global owner opticalwavefrontlabs
+%global owner hmaarrfk
 %global commit 9f5da3b2b19d5ac2f24adf41fd4dd063a9e01c31
 %global gittag v1.0.5-2
-%global shortcommit %(c=%{commit}; echo ${c:0:12})
-Source0:    https://bitbucket.org/%{owner}/%{name}/get/%{gittag}.tar.gz#/%{owner}-%{name}-%{shortcommit}.zip
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+
+Source0:    https://github.com/%{owner}/%{name}/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
@@ -29,7 +30,7 @@ Development CyUSB library for linux, version 1.0.5
 
 
 %prep
-%autosetup -n %{owner}-%{name}-%{shortcommit}
+%autosetup -n %{name}-%{commit}
 
 
 %build
@@ -58,5 +59,3 @@ Development CyUSB library for linux, version 1.0.5
 
 * Sun Apr 22 2018 Mark Harfouche <mark.harfouche@gmail.com> - 1.0.5-1
 - First build
-
-
