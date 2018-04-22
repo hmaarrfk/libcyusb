@@ -11,11 +11,13 @@ add_library(cyusb SHARED "lib/libcyusb.cpp")
 set_target_properties(cyusb PROPERTIES PUBLIC_HEADER "include/cyusb.h")
 target_link_libraries(cyusb usb-1.0)
 
-set_target_properties(cyusb PROPERTIES VERSION ${LIBCYUSB_VERSION}
-                                       SOVERSION ${LIBCYUSB_VERSION_MAJOR}.${LIBCYUSB_VERSION_PATCH})
+set_target_properties(cyusb PROPERTIES VERSION ${LIBCYUSB_VERSION})
 
 install(TARGETS cyusb
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
         ARCHIVE DESTINATION ${CMAKE_INSTALL_BINDIR}
         PUBLIC_HEADER DESTINATION  ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(FILES configs/cyusb.conf
+        DESTINATION ${CMAKE_INSTALL_FULL_SYSCONFDIR})
