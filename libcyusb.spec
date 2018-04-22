@@ -1,14 +1,14 @@
 Name:       libcyusb
 Version:    1.0.5
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:    CyUSB library for linux
 
 Group:      Development/Libraries
 License:    LGPL 2.1
 URL:        http://www.cypress.com/
 %global owner hmaarrfk
-%global commit 9f5da3b2b19d5ac2f24adf41fd4dd063a9e01c31
-%global gittag v1.0.5-2
+%global commit 07d0eccf26f8e7214b37ad1a97863a8cc36fd5c9
+%global gittag v1.0.5-3
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Source0:    https://github.com/%{owner}/%{name}/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
@@ -54,6 +54,9 @@ Development CyUSB library for linux, version 1.0.5
 
 
 %changelog
+* Sun Apr 22 2018 Mark Harfouche <mark.harfouche@gmail.com> - 1.0.5-3
+- rebuilt
+
 * Sun Apr 22 2018 Mark Harfouche <mark.harfouche@gmail.com> - 1.0.5-2
 - rebuilt
 
