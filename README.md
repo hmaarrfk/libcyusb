@@ -12,10 +12,20 @@ cmake ..
 make
 ```
 
+# Ubuntu
+Find it on the [ppa](https://launchpad.net/~mark-harfouche/+archive/ubuntu/libcyusb)
+
+## Build instructions for Ubuntu
+```
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+cpack ..
+sudo apt install ./libcyusb_*.deb
+```
+
 # Fedora
 Find it on copr
 
-
+# LGPL v2.1
 To obtain the LGPL v2.1 license, I had to send a request to the Cypress Support
 team and press them a little bit for an "early" release of their SDK.
 

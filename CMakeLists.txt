@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-project("cyusb")
+project("libcyusb")
 include(GNUInstallDirs)
 
 set(LIBCYUSB_VERSION_MAJOR 1)
@@ -7,6 +7,8 @@ set(LIBCYUSB_VERSION_MINOR 0)
 set(LIBCYUSB_VERSION_PATCH 5)
 set(LIBCYUSB_VERSION ${LIBCYUSB_VERSION_MAJOR}.${LIBCYUSB_VERSION_MINOR}.${LIBCYUSB_VERSION_PATCH} )
 
+# This should work, maybe...
+# find_package(libusb1 REQUIRED)
 add_library(cyusb SHARED "lib/libcyusb.cpp")
 set_target_properties(cyusb PROPERTIES PUBLIC_HEADER "include/cyusb.h")
 target_link_libraries(cyusb usb-1.0)
@@ -22,3 +24,21 @@ install(TARGETS cyusb
 
 install(FILES configs/cyusb.conf
         DESTINATION ${CMAKE_INSTALL_FULL_SYSCONFDIR})
+
+set(CPACK_GENERATOR "DEB")
+
+set(CPACK_PACKAGE_DESCRIPTION "(Unofficial) Library for cyusb")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "(Unofficial) Library for cyusb")
+set(CPACK_PACKAGE_VENDOR "hmaarrfk")
+set(CPACK_PACKAGE_CONTACT "mark.harfouche@gmail.com")
+set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/hmaarrfk/libcyusb")
+set(CPACK_PACKAGE_VERSION_MAJOR ${LIBCYUSB_VERSION_MAJOR})
+set(CPACK_PACKAGE_VERSION_MINOR ${LIBCYUSB_VERSION_MINOR})
+set(CPACK_PACKAGE_VERSION_PATCH ${LIBCYUSB_VERSION_PATCH})
+
+set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}_${LIBCYUSB_VERSION_MAJOR}.${LIBCYUSB_VERSION_MINOR}.${LIBCYUSB_VERSION_PATCH}")
+set(CPACK_SOURCE_PACKAGE_FILE_NAME "${PROJECT_NAME}_${LIBCYUSB_VERSION_MAJOR}.${LIBCYUSB_VERSION_MINOR}.${LIBCYUSB_VERSION_PATCH}")
+
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "libusb-1.0-0")
+
+include(CPack)
