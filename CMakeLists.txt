@@ -24,6 +24,8 @@ install(TARGETS cyusb
 
 install(FILES configs/cyusb.conf
         DESTINATION ${CMAKE_INSTALL_FULL_SYSCONFDIR})
+install(FILES configs/88-cyusb.rules
+        DESTINATION "${CMAKE_INSTALL_FULL_SYSCONFDIR}/udev/rules.d")
 
 set(CPACK_GENERATOR "DEB")
 
