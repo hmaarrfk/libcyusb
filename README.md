@@ -3,6 +3,9 @@ This is my packaged version of the [EZ-USB FX3 Software Development Kit for Linu
 I only included libcyusb in here, but in [releases](https://github.com/hmaarrfk/libcyusb/releases/tag/v1.0.5),
 you should find the full 1.0.5 version of the software that has been modified to have an LGPL license.
 
+# Warning
+In my experience, this library was of limited use. I would use it to learn what commands are sent to libusb and directly use libusb instead of this. They make heavy use of global variables, which makes multi-threaded use difficult.
+
 # Build from source
 
 ```
